@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
+import 'package:portafolio/constants/nav_items.dart';
+import 'package:portafolio/styles/styles.dart';
+import 'package:portafolio/widgets/header_desktop.dart';
+import 'package:portafolio/widgets/header_mobile.dart';
+import 'package:portafolio/widgets/side_logo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,23 +22,8 @@ class _HomePageState extends State<HomePage> {
         scrollDirection: Axis.vertical,
         children: [
           //Main
-          Container(
-            height: 500,
-            width: double.maxFinite,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.transparent, CustomColor.bgLightk],
-              ),
-            ),
-            child: Row(
-              children: [
-                Text("AK"),
-                Spacer(),
-                for (int i = 0; i < 5; i++)
-                  TextButton(onPressed: () {}, child: Text("buttom")),
-              ],
-            ),
-          ),
+          // HeaderDesktop(),
+          HeaderMobile(onMenuTap: () {}),
           //Skills
           Container(height: 500, width: double.maxFinite),
           //PROJECTS
