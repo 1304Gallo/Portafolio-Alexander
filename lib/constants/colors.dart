@@ -11,3 +11,7 @@ class CustomColor {
   static const Color whitePrimary = Color(0xffEAEAEB);
   static const Color whiteSecondary = Color(0xffC8C9CE);
 }
+
+class ElevateButtomColor {
+  static const Color yellowPrimary = Color(0xffFFAF29);
+}
