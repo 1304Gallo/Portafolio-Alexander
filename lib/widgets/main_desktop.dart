@@ -7,22 +7,38 @@ class MainDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
-      height: screenWidth / 1.2,
-      constraints: const BoxConstraints(minHeight: 350.0),
+      height: screenSize.height * 0.85,
+      constraints: const BoxConstraints(minHeight: 350.0, maxHeight: 800),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Hi,\nI'm Alexander\nA Software Developer",
+              const Text(
+                "Hi,",
                 style: TextStyle(
-                  fontSize: 20,
-                  height: 1.5,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: CustomColor.whitePrimary,
+                ),
+              ),
+              const Text(
+                "I'm Alexander",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: CustomColor.whitePrimary,
+                ),
+              ),
+              const Text(
+                "A Software Developer",
+                style: TextStyle(
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
                   color: CustomColor.whitePrimary,
                 ),
@@ -38,7 +54,10 @@ class MainDesktop extends StatelessWidget {
               ),
             ],
           ),
-          Image.asset("assets/developer.png", width: screenWidth / 3),
+          CircleAvatar(
+            radius: 100,
+            backgroundImage: AssetImage("assets/yo.jpg"),
+          ),
         ],
       ),
     );
