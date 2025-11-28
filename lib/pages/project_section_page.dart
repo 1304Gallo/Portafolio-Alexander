@@ -7,9 +7,13 @@ class ProjectSectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
     return Container(
       padding: const EdgeInsets.all(20.0),
-      width: double.maxFinite,
+      width: screenWidth,
+      height: screenHeight,
       child: Column(
         children: [
           const Text(
@@ -24,58 +28,60 @@ class ProjectSectionPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                children: [
-                  CardProjects(
-                    title: "Picta",
-                    imagePath: "assets/images/picta.png",
-                    description: "plataforma de contenidos audiovisuales",
-                    techTags: const [
-                      "python",
-                      "Django",
-                      "Django RESTframework",
-                      "PostgreSQL",
-                    ],
-                    onVisitLink: () {},
-                    onGithubLink: () {},
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    CardProjects(
+                      title: "Picta",
+                      imagePath: "assets/images/picta.png",
+                      description: "plataforma de contenidos audiovisuales",
+                      techTags: const [
+                        "python",
+                        "Django",
+                        "Django RESTframework",
+                        "PostgreSQL",
+                      ],
+                      onVisitLink: () {},
+                      onGithubLink: () {},
+                    ),
+                  ],
+                ),
               ),
               SizedBox(width: 20),
-              Column(
-                children: [
-                  CardProjects(
-                    title: "Picta",
-                    imagePath: "assets/images/picta.png",
-                    description: "plataforma de contenidos audiovisuales",
-                    techTags: const [
-                      "python",
-                      "Django",
-                      "Django RESTframework",
-                      "PostgreSQL",
-                    ],
-                    onVisitLink: () {},
-                    onGithubLink: () {},
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    CardProjects(
+                      title: "Akademos-Mined",
+                      imagePath: "assets/images/akademos.JPG",
+                      description:
+                          "Sistema de gestion academica, para instituciones educativas del Mined",
+                      techTags: const [
+                        "python",
+                        "Django",
+                        "Django RESTframework",
+                        "PostgreSQL",
+                      ],
+                      onVisitLink: () {},
+                      onGithubLink: () {},
+                    ),
+                  ],
+                ),
               ),
               SizedBox(width: 20),
-              Column(
-                children: [
-                  CardProjects(
-                    title: "Picta",
-                    imagePath: "assets/images/picta.png",
-                    description: "plataforma de contenidos audiovisuales",
-                    techTags: const [
-                      "python",
-                      "Django",
-                      "Django RESTframework",
-                      "PostgreSQL",
-                    ],
-                    onVisitLink: () {},
-                    onGithubLink: () {},
-                  ),
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    CardProjects(
+                      title: "ProviProf",
+                      imagePath: "assets/images/picta.png",
+                      description: "plataforma de contenidos audiovisuales",
+                      techTags: const ["Flutter", "Dart"],
+                      onVisitLink: () {},
+                      onGithubLink: () {},
+                    ),
+                  ],
+                ),
               ),
               SizedBox(width: 20),
             ],

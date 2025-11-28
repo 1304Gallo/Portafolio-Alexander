@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
 
@@ -7,12 +6,7 @@ class SkillsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final skills = [
-      "Dart",
-      "Python",
-      "JavaScript",
-      "TypeScript",
-    ];
+    final skills = ["Dart", "Python", "JavaScript", "TypeScript"];
     final frameworks = [
       "Flutter",
       "Django",

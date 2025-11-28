@@ -3,7 +3,9 @@ import 'package:portafolio/constants/colors.dart';
 import 'package:portafolio/constants/nav_items.dart';
 
 class DrawerMbile extends StatelessWidget {
-  const DrawerMbile({super.key});
+  final Function(int) onNavTap;
+
+  const DrawerMbile({super.key, required this.onNavTap});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class DrawerMbile extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
               ),
-              onTap: () {},
+              onTap: () => onNavTap(i),
               leading: Icon(navIcons[i]),
               title: Text(navTitles[i]),
             ),

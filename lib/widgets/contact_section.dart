@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
 
@@ -24,10 +23,7 @@ class ContactSection extends StatelessWidget {
           const SizedBox(height: 20),
           const Text(
             "alex980413@gmail.com",
-            style: TextStyle(
-              color: CustomColor.whiteSecondary,
-              fontSize: 16,
-            ),
+            style: TextStyle(color: CustomColor.whiteSecondary, fontSize: 16),
           ),
         ],
       ),
