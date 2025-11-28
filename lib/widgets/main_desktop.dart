@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
-import 'package:portafolio/widgets/projects_section.dart';
+import 'package:portafolio/pages/project_section_page.dart';
 
 class MainDesktop extends StatelessWidget {
   const MainDesktop({super.key});
@@ -41,7 +41,13 @@ class MainDesktop extends StatelessWidget {
                 width: 230,
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: ProjectsSection(),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const ProjectSectionPage(),
+                      ),
+                    );
+                  },
                   child: const Text("Get in Touch"),
                 ),
               ),
@@ -52,18 +58,18 @@ class MainDesktop extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 100,
-                backgroundImage: AssetImage("assets/yo.jpg"),
+                backgroundImage: AssetImage("assets/images/yo.jpg"),
               ),
               SizedBox(height: 20),
               Row(
                 children: [
                   Image(
-                    image: AssetImage("assets/linkeldn.png"),
+                    image: AssetImage("assets/images/linkeldn.png"),
                     width: 60,
                     height: 60,
                   ),
                   Image(
-                    image: AssetImage("assets/github.png"),
+                    image: AssetImage("assets/images/github.png"),
                     width: 45,
                     height: 45,
                   ),

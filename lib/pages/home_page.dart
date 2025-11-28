@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
 import 'package:portafolio/constants/size.dart';
+import 'package:portafolio/pages/project_section_page.dart';
 import 'package:portafolio/widgets/drawer_mobile.dart';
 import 'package:portafolio/widgets/header_desktop.dart';
 import 'package:portafolio/widgets/header_mobile.dart';
 import 'package:portafolio/widgets/main_desktop.dart';
 import 'package:portafolio/widgets/main_mobile.dart';
-import 'package:portafolio/widgets/projects_section.dart';
 import 'package:portafolio/widgets/skills_section.dart';
 import 'package:portafolio/widgets/contact_section.dart';
 
@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
               //Skills
               const SkillsSection(),
               //PROJECTS
-              const ProjectsSection(),
+              ProjectSectionPage(),
               //CONTACTS
               const ContactSection(),
               //FOOTER

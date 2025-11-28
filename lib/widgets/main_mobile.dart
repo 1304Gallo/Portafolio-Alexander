@@ -34,7 +34,7 @@ class MainMobile extends StatelessWidget {
                   blendMode: BlendMode.srcATop,
                   child: CircleAvatar(
                     radius: 60,
-                    backgroundImage: AssetImage("assets/yo.jpg"),
+                    backgroundImage: AssetImage("assets/images/yo.jpg"),
                   ),
                 ),
                 const SizedBox(height: 30),
