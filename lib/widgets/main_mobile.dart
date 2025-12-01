@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
+import 'package:portafolio/utils/notifications.dart';
 
 class MainMobile extends StatelessWidget {
-  const MainMobile({super.key, this.onNavTap});
-  final Function(int)? onNavTap;
+  const MainMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +56,7 @@ class MainMobile extends StatelessWidget {
                   height: 40,
                   child: ElevatedButton(
                     onPressed: () {
-                      if (onNavTap != null) {
-                        onNavTap!(3);
-                      }
+                      ScrollToSectionNotification(2).dispatch(context);
                     },
                     child: const Text("Get in Touch"),
                   ),

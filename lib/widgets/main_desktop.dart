@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
+import 'package:portafolio/utils/notifications.dart';
 
 class MainDesktop extends StatelessWidget {
-  const MainDesktop({super.key, required this.onNavTap});
-  final Function(int) onNavTap;
+  const MainDesktop({super.key});
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -40,7 +40,9 @@ class MainDesktop extends StatelessWidget {
                 width: 230,
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: () => onNavTap(3),
+                  onPressed: () {
+                    ScrollToSectionNotification(3).dispatch(context);
+                  },
                   child: const Text("Get in Touch"),
                 ),
               ),
@@ -49,19 +51,19 @@ class MainDesktop extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 100,
                 backgroundImage: AssetImage("assets/images/yo.jpg"),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
-                  Image(
+                  const Image(
                     image: AssetImage("assets/images/linkeldn.png"),
                     width: 60,
                     height: 60,
                   ),
-                  Image(
+                  const Image(
                     image: AssetImage("assets/images/github.png"),
                     width: 45,
                     height: 45,
