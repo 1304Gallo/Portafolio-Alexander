@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
 
 class MainMobile extends StatelessWidget {
-  const MainMobile({super.key});
+  const MainMobile({super.key, this.onNavTap});
+  final Function(int)? onNavTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +33,14 @@ class MainMobile extends StatelessWidget {
                     ).createShader(bounds);
                   },
                   blendMode: BlendMode.srcATop,
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     radius: 60,
                     backgroundImage: AssetImage("assets/images/yo.jpg"),
                   ),
                 ),
                 const SizedBox(height: 30),
                 //intro text
-                Text(
+                const Text(
                   "Hi,\nI'm Alexander\nA Software Developer",
                   style: TextStyle(
                     fontSize: 24,
@@ -54,7 +55,11 @@ class MainMobile extends StatelessWidget {
                   width: 190,
                   height: 40,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (onNavTap != null) {
+                        onNavTap!(3);
+                      }
+                    },
                     child: const Text("Get in Touch"),
                   ),
                 ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portafolio/constants/colors.dart';
 import 'package:portafolio/constants/size.dart';
 import 'package:portafolio/pages/project_section_page.dart';
 import 'package:portafolio/widgets/drawer_mobile.dart';
@@ -17,27 +16,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final scaffoldkey = GlobalKey<ScaffoldState>();
+  final _scrollController = ScrollController();
+  final _sectionKeys = <int, GlobalKey>{};
 
-  final GlobalKey homeKey = GlobalKey();
-  final GlobalKey skillsKey = GlobalKey();
-  final GlobalKey projectsKey = GlobalKey();
-  final GlobalKey contactKey = GlobalKey();
+  @override
+  void initState() {
+    super.initState();
+    for (int i = 0; i < 5; i++) {
+      _sectionKeys[i] = GlobalKey();
+    }
+  }
 
   void _scrollToSection(int index) {
-    final keys = [homeKey, skillsKey, projectsKey, contactKey];
-    final context = keys[index].currentContext;
-
-    if (context != null) {
+    if (_sectionKeys.containsKey(index)) {
       Scrollable.ensureVisible(
-        context,
-        duration: const Duration(milliseconds: 500),
+        _sectionKeys[index]!.currentContext!,
+        duration: const Duration(milliseconds: 150),
         curve: Curves.easeInOut,
       );
-    }
-
-    if (scaffoldkey.currentState?.isEndDrawerOpen ?? false) {
-      Navigator.of(context!).pop();
     }
   }
 
@@ -46,12 +42,12 @@ class _HomePageState extends State<HomePage> {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Scaffold(
-          key: scaffoldkey,
-          backgroundColor: CustomColor.scaffoldBg,
+          backgroundColor: const Color.fromRGBO(37, 39, 52, 1),
           endDrawer: constraints.maxWidth >= KMinDesktopWidth
               ? null
-              : DrawerMbile(onNavTap: _scrollToSection),
+              : DrawerMobile(onNavTap: _scrollToSection),
           body: ListView(
+            controller: _scrollController,
             scrollDirection: Axis.vertical,
             children: [
               //Main
@@ -61,18 +57,22 @@ class _HomePageState extends State<HomePage> {
                 HeaderMobile(
                   onLogoTap: () => _scrollToSection(0),
                   onMenuTap: () {
-                    scaffoldkey.currentState?.openEndDrawer();
+                    Scaffold.of(context).openEndDrawer();
                   },
                 ),
-              HomeSection(key: homeKey),
+              HomeSection(
+                key: _sectionKeys[0],
+                onNavTap: _scrollToSection,
+              ),
               //Skills
-              SkillsSection(key: skillsKey),
+              SkillsSection(key: _sectionKeys[1]),
               //PROJECTS
-              ProjectSectionPage(key: projectsKey),
+              ProjectSectionPage(key: _sectionKeys[2]),
               //CONTACTS
-              ContactSection(key: contactKey),
+              ContactSection(key: _sectionKeys[3]),
               //FOOTER
               Container(
+                key: _sectionKeys[4],
                 height: 500,
                 width: double.maxFinite,
                 color: Colors.blueGrey,

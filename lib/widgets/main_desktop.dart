@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portafolio/constants/colors.dart';
-import 'package:portafolio/pages/project_section_page.dart';
 
 class MainDesktop extends StatelessWidget {
-  const MainDesktop({super.key});
-
+  const MainDesktop({super.key, required this.onNavTap});
+  final Function(int) onNavTap;
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -41,13 +40,7 @@ class MainDesktop extends StatelessWidget {
                 width: 230,
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const ProjectSectionPage(),
-                      ),
-                    );
-                  },
+                  onPressed: () => onNavTap(3),
                   child: const Text("Get in Touch"),
                 ),
               ),

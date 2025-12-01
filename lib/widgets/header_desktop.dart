@@ -5,9 +5,8 @@ import 'package:portafolio/styles/styles.dart';
 import 'package:portafolio/widgets/side_logo.dart';
 
 class HeaderDesktop extends StatelessWidget {
-  final Function(int) onNavTap;
-
   const HeaderDesktop({super.key, required this.onNavTap});
+  final Function(int) onNavTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +17,15 @@ class HeaderDesktop extends StatelessWidget {
       decoration: headerDecoration,
       child: Row(
         children: [
-          SideLogo(onTap: () => onNavTap(0)),
+          SideLogo(onTap: () {
+            onNavTap(0);
+          }),
           const Spacer(),
           for (int i = 0; i < navTitles.length; i++)
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: TextButton(
-                onPressed: () => onNavTap(i),
+                onPressed: () => {onNavTap(i)},
                 child: Text(
                   navTitles[i],
                   style: const TextStyle(

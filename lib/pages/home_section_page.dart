@@ -4,15 +4,16 @@ import 'package:portafolio/widgets/main_desktop.dart';
 import 'package:portafolio/widgets/main_mobile.dart';
 
 class HomeSection extends StatelessWidget {
-  const HomeSection({super.key});
+  const HomeSection({super.key, required this.onNavTap});
+  final Function(int) onNavTap;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         return constraints.maxWidth >= KMinDesktopWidth
-            ? const MainDesktop()
-            : const MainMobile();
+            ? MainDesktop(onNavTap: onNavTap)
+            : MainMobile(onNavTap: onNavTap);
       },
     );
   }
