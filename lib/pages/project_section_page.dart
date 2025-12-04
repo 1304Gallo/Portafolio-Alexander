@@ -21,7 +21,7 @@ class ProjectSectionPage extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: CustomColor.whitePrimary,
+              color: CustomColor.bgLight2,
             ),
           ),
           const SizedBox(height: 25),
@@ -75,7 +75,8 @@ class ProjectSectionPage extends StatelessWidget {
                     CardProjects(
                       title: "ProviProf",
                       imagePath: "assets/images/picta.png",
-                      description: "plataforma de contenidos audiovisuales",
+                      description:
+                          "Plataforma cubana de contenidos audiovisuales ",
                       techTags: const ["Flutter", "Dart"],
                       onVisitLink: () {},
                       onGithubLink: () {},

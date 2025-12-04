@@ -37,6 +37,7 @@ class _CardProjectsState extends State<CardProjects> {
 
       // 3. AnimatedContainer suaviza los cambios de las propiedades
       child: AnimatedContainer(
+        height: 400,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeOut, // Curva de animación natural
         width: 300,
@@ -64,8 +65,6 @@ class _CardProjectsState extends State<CardProjects> {
         ),
         // El contenido interno permanece igual que el diseño estático
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.vertical(
@@ -131,6 +130,7 @@ class _CardProjectsState extends State<CardProjects> {
                             ),
                             padding: const EdgeInsets.symmetric(vertical: 12),
                           ),
+
                           child: const Text(
                             "Ver Demo",
                             style: TextStyle(fontWeight: FontWeight.bold),

@@ -61,16 +61,17 @@ class _HomePageState extends State<HomePage> {
                   if (constraints.maxWidth >= KMinDesktopWidth)
                     HeaderDesktop(onNavTap: scrollToSection)
                   else
-                    HeaderMobile(
-                      onLogoTap: () => scrollToSection(0),
-                      onMenuTap: () {
-                        Scaffold.of(context).openEndDrawer();
+                    Builder(
+                      builder: (context) {
+                        return HeaderMobile(
+                          onLogoTap: () => scrollToSection(0),
+                          onMenuTap: () {
+                            Scaffold.of(context).openEndDrawer();
+                          },
+                        );
                       },
                     ),
-                  Container(
-                    key: _sectionKeys[0],
-                    child: const HomeSection(),
-                  ),
+                  Container(key: _sectionKeys[0], child: const HomeSection()),
                   //Skills
                   SkillsSection(key: _sectionKeys[1]),
                   //PROJECTS
@@ -82,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                     key: _sectionKeys[4],
                     height: 500,
                     width: double.maxFinite,
-                    color: Colors.blueGrey,
+                    color: Color(0xff252734),
                   ),
                 ],
               ),

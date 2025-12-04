@@ -16,7 +16,7 @@ class SkillsSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20.0),
       width: double.maxFinite,
-      color: CustomColor.bgLightk,
+      color: CustomColor.scaffoldBg,
       child: Column(
         children: [
           const Text(
